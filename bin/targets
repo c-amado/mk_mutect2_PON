@@ -1,7 +1,7 @@
 #!/bin/sh
 #echo "results/SM-3MG3L.final.ir.rtc.bam"
 find -L data/ \
-        -name '*.markdup.sorted.bam'\
+        -name 'B*.recal2.bam'\
 | sed \
 	-e "s/data/results/g" \
-	-e "s/\.markdup\.sorted\.bam/.vcf/"
+	-e "s/\.recal2\.bam/\.vcf\.gz/"

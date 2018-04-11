@@ -13,4 +13,4 @@ results/%.vcf.gz: data/%.recal2.bam
 		--disable-read-filter MateOnSameContigOrNoMappedMateReadFilter \
 		-O $target".build" \
 	&& mv $target".build" $target \
-	&& mv $target".build.idx" $target".ix"
+	&& mv $target".build.idx" $target".idx"
