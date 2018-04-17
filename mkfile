@@ -3,7 +3,7 @@
 
 < config.mk
 
-results/%.vcf.gz: data/%.recal2.bam
+results/%.vcf.gz: data/%.recal.bam
 	mkdir -p `dirname $target`
 	java -jar $GATK \
 		Mutect2 \
@@ -11,6 +11,6 @@ results/%.vcf.gz: data/%.recal2.bam
 		-I $prereq \
 		-tumor `echo $stem | cut -f1 -d"_"` \
 		--disable-read-filter MateOnSameContigOrNoMappedMateReadFilter \
-		-O $target".build" \
-	&& mv $target".build" $target \
-	&& mv $target".build.idx" $target".idx"
+		-O "results/"$stem".build.vcf.gz" \
+	&& mv "results/"$stem".build.vcf.gz" $target \
+	&& mv "results/"$stem".build.vcf.gz.tbi" $target".tbi"
